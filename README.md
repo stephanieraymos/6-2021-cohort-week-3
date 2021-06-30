@@ -1,1 +1,1 @@
-# 6-2021-cohort-week-3
+# Week 3 files for Nucamp HTML, CSS & JS
