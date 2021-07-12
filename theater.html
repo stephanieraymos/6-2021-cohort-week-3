@@ -29,7 +29,7 @@
       }
 
       function applyMatineeDiscount(cost, isMatinee) {
-        if (isMatinee === "yes" || isMatinee === "y") {
+        if (isMatinee.toLowerCase() === "yes" || isMatinee.toLowerCase() === "y") {
           return cost - MATINEE_DISCOUNT;
         }
         return cost;
