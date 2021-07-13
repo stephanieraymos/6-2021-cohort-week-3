@@ -7,11 +7,14 @@ function runGame() {
 
   do {
     guessString = prompt("Enter a number between 1 and 100");
+    if (guessString === null) {
+      return;
+    }
     numTries++;
     guessNumber = +guessString;
     correct = checkGuess(guessNumber, target);
   } while (!correct);
-  alert("You guessed the number! It took you " + numTries + " tries!")
+  alert("You guessed the number! It took you " + numTries + " tries!");
 }
 
 function checkGuess(guessNumber, target) {
@@ -25,7 +28,7 @@ function checkGuess(guessNumber, target) {
   } else if (guessNumber < target) {
     alert("The number you entered is less than the target.");
   } else {
-      correct = true;
+    correct = true;
   }
   return correct;
 }
