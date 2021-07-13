@@ -14,7 +14,13 @@ function runGame() {
     guessNumber = +guessString;
     correct = checkGuess(guessNumber, target);
   } while (!correct);
-  alert("You guessed the number! It took you " + numTries + " tries!");
+  alert(
+    "You guessed it! The number was " +
+      target +
+      "!\n\nIt took you " +
+      numTries +
+      " tries!"
+  );
 }
 
 function checkGuess(guessNumber, target) {
