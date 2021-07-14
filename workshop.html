@@ -22,7 +22,13 @@
         "brown",
         "gray",
       ];
-      function runGame() {}
+      function runGame() {
+        let guess = "";
+        let correct = false;
+        const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
+        const target = COLORS_ARRAY[targetIndex];
+        console.log(target);
+      }
       function checkGuess(guess, target) {}
     </script>
   </body>
