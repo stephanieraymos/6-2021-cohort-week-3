@@ -25,11 +25,50 @@
       function runGame() {
         let guess = "";
         let correct = false;
+
         const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
         const target = COLORS_ARRAY[targetIndex];
+
         console.log(target);
+        do {
+          guess = prompt(
+            "I am thinking of one of these colors:\n\n" +
+              COLORS_ARRAY +
+              "What color am I thinking of?\n"
+          );
+          if (guess === null) {
+            // If player hits cancel on prompt window
+            alert("The game has been cancelled.");
+            return;
+          }
+          correct = checkGuess(guess, target);
+        } while (!correct);
+        alert("You got it!");
       }
-      function checkGuess(guess, target) {}
+
+      function checkGuess(guess, target) {
+        const sorryMsg = "Sorry, your guess is incorrect.\n\n";
+        const tryMsg = "\n\nPlease try again.";
+        let correct = false;
+        if (!COLORS_ARRAY.includes(guess)) {
+          alert("Sorry, I don't recognize your color. " + tryMsg);
+        } else if (guess < target) {
+          alert(
+            sorryMsg +
+              "Hint: your color is alphabetically lower than mine." +
+              tryMsg
+          );
+        } else if (guess > target) {
+          alert(
+            sorryMsg +
+              "Hint: your color is alphabetically higher than mine." +
+              tryMsg
+          );
+        } else {
+          correct = true;
+        }
+        return correct;
+      }
     </script>
   </body>
 </html>
