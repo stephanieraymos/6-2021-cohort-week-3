@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
     <title>Color Guessing Game</title>
   </head>
   <body>
@@ -11,16 +9,16 @@
     <button type="button" onclick="runGame()">Start Game</button>
     <script>
       const COLORS_ARRAY = [
-        "red",
-        "orange",
-        "yellow",
-        "green",
         "blue",
-        "purple",
-        "magenta",
-        "pink",
-        "brown",
+        "cyan",
+        "gold",
         "gray",
+        "green",
+        "magenta",
+        "orange",
+        "red",
+        "white",
+        "yellow",
       ];
 
       function runGame() {
@@ -31,23 +29,32 @@
         const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
         const target = COLORS_ARRAY[targetIndex];
 
-        console.log(target);
+        console.log("The target is: " + target);
+
         do {
           guess = prompt(
             "I am thinking of one of these colors:\n\n" +
               COLORS_ARRAY.join(", ") +
               "\n\nWhat color am I thinking of?\n"
-          );
+          ); // Note: students could also join the COLORS_ARRAY into a new const before the while loop begins, then use that const here, for maximum efficiency.
           numTries += 1;
 
           if (guess === null) {
-            alert("The game has been been cancelled.");
+            alert("The game has been aborted.");
             return;
           }
           correct = checkGuess(guess.toLowerCase(), target);
-        } while (!correct);
+        } while (!correct); // Keep looping until the function checkGuess returns a value of 'true'
+
         document.body.style.background = guess;
-        alert("You got it! It took you " + numTries + " to guess the color.");
+
+        alert(
+          "Congratulations! You have guessed the color!\n\n" +
+            "It took you " +
+            numTries +
+            " guesses to finish the game!\n\n" +
+            "Hit OK to see the color in the background."
+        );
       }
 
       function checkGuess(guess, target) {
