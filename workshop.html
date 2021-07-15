@@ -21,7 +21,7 @@
         "pink",
         "brown",
         "gray",
-      ];
+      ]
 
       function runGame() {
         let guess = "";
@@ -35,7 +35,7 @@
         do {
           guess = prompt(
             "I am thinking of one of these colors:\n\n" +
-              COLORS_ARRAY.join(", ") +
+              COLORS_ARRAY.sort().join(", ") +
               "\n\nWhat color am I thinking of?\n"
           );
           numTries += 1;
