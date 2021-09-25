@@ -21,8 +21,9 @@
         "pink",
         "brown",
         "gray",
-      ]
+      ];
 
+      // Moved numTries outside of runGame to use in checkGuess
       let numTries = 0;
 
       function runGame() {
@@ -52,25 +53,22 @@
         document.body.style.background = guess;
 
         alert("You got it! It took you " + numTries + " to guess the color.");
-
       }
 
-      // This is a test again
-
       function checkGuess(guess, target) {
-
         const sorryMsg = "Sorry, your guess is incorrect.\n\n";
+        // Added numTries to tryMsg to use in conditionals to show number of tries after each guess
         const tryMsg = "\n\nPlease try again. This is guess number " + numTries;
 
         let correct = false;
-        
+
         if (!COLORS_ARRAY.includes(guess)) {
           alert("Sorry, I don't recognize your color. " + tryMsg);
         } else if (guess < target) {
           alert(
             sorryMsg +
               "Hint: your color is alphabetically lower than mine." +
-              tryMsg 
+              tryMsg
           );
         } else if (guess > target) {
           alert(
