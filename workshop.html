@@ -23,10 +23,11 @@
         "gray",
       ]
 
+      let numTries = 0;
+
       function runGame() {
         let guess = "";
         let correct = false;
-        let numTries = 0;
 
         const targetIndex = Math.floor(Math.random() * COLORS_ARRAY.length);
         const target = COLORS_ARRAY[targetIndex];
@@ -57,7 +58,7 @@
       function checkGuess(guess, target) {
 
         const sorryMsg = "Sorry, your guess is incorrect.\n\n";
-        const tryMsg = "\n\nPlease try again.";
+        const tryMsg = "\n\nPlease try again. This is guess number " + numTries;
 
         let correct = false;
         
@@ -67,7 +68,7 @@
           alert(
             sorryMsg +
               "Hint: your color is alphabetically lower than mine." +
-              tryMsg
+              tryMsg 
           );
         } else if (guess > target) {
           alert(
