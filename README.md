@@ -1,1 +1,1 @@
-# Week 3 files for Nucamp HTML, CSS & JS
+# Week 3 files for Nucamp Web Development Fundamentals.
