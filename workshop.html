@@ -50,9 +50,10 @@
           correct = checkGuess(guess.toLowerCase(), target);
         } while (!correct);
 
-        document.body.style.background = guess;
 
+        document.body.style.background = guess;
         alert("You got it! It took you " + numTries + " to guess the color.");
+
       }
 
       function checkGuess(guess, target) {
